@@ -1,0 +1,50 @@
+/*
+ * amiVector.test
+ *      Author: ANTOINE Sylvestre
+ */
+ 
+This code :
+
+func
+{
+	separator("<ami::vector Test>");
+
+	ami::vector<char> test;
+	ami::vector<char> test2;
+
+	test.push_back('a');
+	test.push_back('t');
+	test.push_back('8');
+
+	test2 = test;
+	test2.pop_back();
+	test [1] = 'B';
+
+	debugln(test.size());
+
+	std::cout << "   Vector Test : [ ";
+	for (uint32_t var = 0; var < test.size(); ++var)
+		std::cout << "(" << test [var] << ")";
+	std::cout << " ]" << std::endl;
+
+	debugln(test2.size());
+
+	std::cout << "   Vector Test 2 : [ ";
+	for (uint32_t var = 0; var < test2.size(); ++var)
+		std::cout << "(" << test2 [var] << ")";
+	std::cout << " ]" << std::endl;
+
+	separator("</ami::vector Test>");
+}
+
+must draw :
+{
+   <=========================# Separator : <ami::vector Test> #=========================>
+
+   [test.size() = ( (j)3 ) ]
+   Vector Test : [ (a)(B)(8) ]
+   [test2.size() = ( (j)2 ) ]
+   Vector Test 2 : [ (a)(t) ]
+
+   <=========================# Separator : </ami::vector Test> #=========================>
+}

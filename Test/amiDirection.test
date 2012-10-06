@@ -1,0 +1,34 @@
+/*
+ * amiDirection.test
+ *      Author: ANTOINE Sylvestre
+ */
+ 
+This code :
+
+func 
+{
+	separator("<ami::Direction Test>");
+
+	debugln(ami::FourDirectionSet::getNeighbor(GridLocation(2,2),ami::UP));
+	debugln(ami::FourDirectionSet::getNeighbor(GridLocation(2,2),ami::DOWN));
+	debugln(ami::FourDirectionSet::getNeighbor(GridLocation(2,2),ami::LEFT));
+	debugln(ami::FourDirectionSet::getNeighbor(GridLocation(2,2),ami::RIGHT));
+
+	debugln(ami::FourDirectionSet::getRightDirection(ami::RIGHT)); // 2 <=> DOWN
+
+	separator("</ami::Direction Test>");
+}
+
+must draw :
+{
+
+   <=========================# Separator : <ami::Direction Test> #=========================>
+
+   [ami::FourDirectionSet::getNeighbor(GridLocation(2,2),ami::UP) = ( (N3ami12GridLocationE)[2,1] ) ]
+   [ami::FourDirectionSet::getNeighbor(GridLocation(2,2),ami::DOWN) = ( (N3ami12GridLocationE)[2,3] ) ]
+   [ami::FourDirectionSet::getNeighbor(GridLocation(2,2),ami::LEFT) = ( (N3ami12GridLocationE)[1,2] ) ]
+   [ami::FourDirectionSet::getNeighbor(GridLocation(2,2),ami::RIGHT) = ( (N3ami12GridLocationE)[3,2] ) ]
+   [ami::FourDirectionSet::getRightDirection(ami::RIGHT) = ( (N3ami9DirectionE)2 ) ]
+
+   <=========================# Separator : </ami::Direction Test> #=========================>
+}

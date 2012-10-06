@@ -1,0 +1,60 @@
+/*
+ * amiFunctionnal.test
+ *      Author: ANTOINE Sylvestre
+ */
+ 
+This code :
+
+bool isAccessible(const char & data)
+{
+	return data != '#' && data != 'A';
+}
+
+func
+{
+	separator("<ami::Functionnal>");
+
+	ami::Grid<char> map = ami::generateMap(4,6,'_','#',8);
+
+	ami::GridLocation depart(0,1);
+	ami::GridLocation arrive(5,3);
+
+	map [depart] = 'D';
+	map [arrive] = 'A';
+
+	debugln(map);
+
+	debug(pathFinderFourDirectionSet(map,depart,arrive,isAccessible));
+
+	separator("</ami::Functionnal>");
+}
+
+must draw something like this :
+{
+
+   <=========================# Separator : <ami::Functionnal> #=========================>
+
+   <generateMap> [File = ..\functionnal.hpp , Line = 37]
+      [casesWithObstacle = ( (St6vectorIjSaIjEE) 11 14 4 3 7 22 0 5  ) ]
+      [generatedMap = ( (N3ami4GridIcEE)
+      [ #]       [ _]       [ _]       [ #]       [ #]       [ #] 
+      [ _]       [ #]       [ _]       [ _]       [ _]       [ #] 
+      [ _]       [ _]       [ #]       [ _]       [ _]       [ _] 
+      [ _]       [ _]       [ _]       [ _]       [ #]       [ _]  ) ]
+   </generateMap> [Time = 0 ms]
+   [map = ( (N3ami4GridIcEE)
+   [ #]    [ _]    [ _]    [ #]    [ #]    [ #] 
+   [ D]    [ #]    [ _]    [ _]    [ _]    [ #] 
+   [ _]    [ _]    [ #]    [ _]    [ _]    [ _] 
+   [ _]    [ _]    [ _]    [ _]    [ #]    [ A]  ) ]
+   <pathFinderFourDirectionSet> [File = ..\functionnal.hpp , Line = 73]
+      [path = ( (N3ami4GridINS_9DirectionEEE)
+      [255]       [ 3]       [ 2]       [255]       [255]       [255] 
+      [ 2]       [255]       [ 3]       [ 3]       [ 2]       [255] 
+      [ 3]       [ 2]       [255]       [ 3]       [ 3]       [ 2] 
+      [ 3]       [ 3]       [ 3]       [ 0]       [255]       [254]  ) ]
+   </pathFinderFourDirectionSet> [Time = 0 ms]
+   [pathFinderFourDirectionSet(map,depart,arrive,isAccessible) = ( (b)1 ) ]
+
+   <=========================# Separator : </ami::Functionnal> #=========================>
+}

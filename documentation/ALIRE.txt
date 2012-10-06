@@ -1,0 +1,6 @@
+/*
+ * ALIRE.txt
+ *      Author: ANTOINE Sylvestre
+ */
+ 
+Afin de generer la documentation : Utiliser doxygen. Sous eclipse le plugin Eclox vous facilitera le travail.

@@ -1,0 +1,41 @@
+/*
+ * amiGrid.test
+ *      Author: ANTOINE Sylvestre
+ */
+ 
+This code :
+
+func
+{
+	separator("<ami::grid Test>");
+
+	ami::Grid<char> map(3,3,'_');
+	debugln(map);
+
+	map[GridLocation(2,0)] = '5';
+	debugln(map);
+
+	debugln(map.contains(GridLocation(5,5)));
+
+	debugln(map.toVector());
+
+	separator("</ami::grid Test>");
+}
+
+must draw :
+{
+   <=========================# Separator : <ami::grid Test> #=========================>
+
+   [map = ( (N3ami4GridIcEE)
+   [ _]    [ _]    [ _] 
+   [ _]    [ _]    [ _] 
+   [ _]    [ _]    [ _]  ) ]
+   [map = ( (N3ami4GridIcEE)
+   [ _]    [ _]    [ 5] 
+   [ _]    [ _]    [ _] 
+   [ _]    [ _]    [ _]  ) ]
+   [map.contains(GridLocation(5,5)) = ( (b)0 ) ]
+   [map.toVector() = ( (St6vectorIcSaIcEE) _ _ 5 _ _ _ _ _ _  ) ]
+
+   <=========================# Separator : </ami::grid Test> #=========================>
+}

@@ -1,0 +1,41 @@
+/*
+ * ALIRE.txt
+ *      Author: ANTOINE Sylvestre
+ */
+ 
+Chaque fichier correspond a un jeu de tests. Il sont reperables comme ceci :
+namespaceIdDuTest.test
+
+Exemple :
+amiVector.test correspond a un jeu de tests des vectors de la bibliotheque Aumiis.
+stdVector.test correspond a un jeu de tests des vectors de la stl.
+
+
+Les jeux de tests fonctionnent de cette maniere :
+
+#Le code a copier se trouve ici :
+This code :
+
+#Definition des structures de donnees si besoin :
+struct X
+{
+	/* ... */
+};
+
+#Fonction contenant le jeu de tests (a placer dans un main):
+func 
+{
+	debugln("<===== <ami::TRUC Test> =====>");
+	
+	/* CODE ICI */
+	
+	debugln("<===== </ami::TRUC Test> =====>");
+}
+
+#Affichage attendu pour le jeu de tests :
+must draw :
+{
+ ["<===== <ami::TRUC Test> =====>"=((A35_c)<===== <ami::TRUC Test> =====>)] 
+	/* Affichage ICI */
+ ["<===== </ami::TRUC Test> =====>"=((A36_c)<===== </ami::TRUC Test> =====>)] 
+}

@@ -1,0 +1,40 @@
+/*
+ * amiSmartPtr.test
+ *      Author: ANTOINE Sylvestre
+ */
+ 
+This code :
+
+struct A
+{
+	int a;
+	A (const int & value = 5) :	a(value){}
+
+	friend std::ostream & operator<< (std::ostream & oss, const A & a){	return oss << a.a;}
+
+	CLONE_METHOD( A);
+};
+
+func 
+{
+	separator("<ami::SmartPtr Test>");
+
+	ami::copy_ptr<A> toto = new A(1);
+	ami::copy_ptr<A> tata = toto;
+
+	debug(*toto); debugln(*tata);
+	*tata = 7;
+	debug(*toto); debugln(*tata);
+
+	separator("</ami::SmartPtr Test>");
+}
+
+must draw :
+{
+   <=========================# Separator : <ami::SmartPtr Test> #=========================>
+
+   [*toto = ( (1A)1 ) ]   [*tata = ( (1A)1 ) ]
+   [*toto = ( (1A)1 ) ]   [*tata = ( (1A)7 ) ]
+
+   <=========================# Separator : </ami::SmartPtr Test> #=========================>
+}

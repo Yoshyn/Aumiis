@@ -1,0 +1,50 @@
+/*
+ * stdVector.test
+ *      Author: ANTOINE Sylvestre
+ */
+ 
+This code :
+
+func
+{
+	separator("<std::vector Test>");
+
+	std::vector<int> vec(6,0xFF);
+	vec [2] = 5; vec [4] = 9; vec [5] = 10;
+
+	std::vector<int> copie(vec.size() - std::count(vec.begin(),vec.end(),0xFF));
+	std::remove_copy(vec.begin(),vec.end(),copie.begin(),0xFF);
+	debugln(copie);
+	// rezise si sur meme vecteur
+
+	debugln(vec);
+	//vec.clear(); // vide le tableau
+
+	//	std::remove(vec.begin(),vec.end(),5); // Supprimer Une valeur du tableau
+	//
+	vec.erase(std::find(vec.begin(),vec.end(),5));
+	std::vector<int>::iterator t = std::find(vec.begin(),vec.end(),5);
+	if (t != vec.end())
+		std::cout << " Valeur 0xFF trouvé !" << std::endl;
+
+	debugln(vec);
+	debugln(vec.size());
+
+	vec.clear(); // vide le tableau
+	debugln(vec);
+
+	separator("</std::vector Test>");
+}
+
+must draw :
+{
+   <=========================# Separator : <std::vector Test> #=========================>
+
+   [copie = ( (St6vectorIiSaIiEE) 5 9 10  ) ]
+   [vec = ( (St6vectorIiSaIiEE) 255 255 5 255 9 10  ) ]
+   [vec = ( (St6vectorIiSaIiEE) 255 255 255 9 10  ) ]
+   [vec.size() = ( (j)5 ) ]
+   [vec = ( (St6vectorIiSaIiEE)  ) ]
+
+   <=========================# Separator : </std::vector Test> #=========================>
+}
